@@ -12,7 +12,7 @@ check() {
 
   service::config_set SERVICE_MEILISEARCH_PORT text "Port" 7700
 
-  service::config_set SERVICE_MEILISEARCH_MEILI_MASTER_KEY text "Meili Master Key" "masterKey"
+  service::config_set SERVICE_MEILISEARCH_MEILI_MASTER_KEY text "Meili Master Key" "$(os::random_string 8)"
 }
 
 check $@
