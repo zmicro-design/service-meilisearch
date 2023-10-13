@@ -1,0 +1,21 @@
+services:
+  meilisearch-ui:
+    image: riccoxie/meilisearch-ui:latest
+    restart: always
+    # ports:
+    #   - 24900:24900
+
+  meilisearch:
+    restart: always
+    image: whatwewant/meilisearch:${SERVICE_MEILISEARCH_IMAGE_VERSION}
+    ports:
+      - 0.0.0.0:${SERVICE_MEILISEARCH_PORT}:7700
+    environment:
+      MEILI_MASTER_KEY: ${SERVICE_MEILISEARCH_MEILI_MASTER_KEY}
+    volumes:
+      - ${SERVICE_MEILISEARCH_DATA_HOME}:/meili_data
+      
+networks:
+  default:
+    external: true
+    name: compose-ingress
