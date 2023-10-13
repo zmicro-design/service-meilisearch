@@ -13,7 +13,7 @@ services:
     environment:
       MEILI_MASTER_KEY: ${SERVICE_MEILISEARCH_MEILI_MASTER_KEY}
     volumes:
-      - ${SERVICE_MEILISEARCH_DATA_HOME}:/meili_data
+      - ${SERVICE_DATA}:/meili_data
       
 networks:
   default:
