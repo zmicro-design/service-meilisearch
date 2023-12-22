@@ -14,6 +14,8 @@ services:
       MEILI_MASTER_KEY: ${SERVICE_MEILISEARCH_MEILI_MASTER_KEY}
     volumes:
       - ${SERVICE_DATA}:/meili_data
+    mem_limit: 8192m
+    cpus: 4
       
 networks:
   default:
